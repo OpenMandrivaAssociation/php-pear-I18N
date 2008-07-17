@@ -7,7 +7,7 @@
 Summary:	%{_pearname} - internationalization package
 Name:		php-pear-%{_pearname}
 Version:	0.8.6
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	PHP License
 Group:		Development/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tar.bz2
@@ -19,7 +19,7 @@ Requires(preun): php-pear
 Requires:	php-pear
 BuildArch:	noarch
 BuildRequires:	dos2unix
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This package supports you to localize your applications. Currently
