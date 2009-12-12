@@ -9,10 +9,9 @@ Release:	%mkrel 12
 Summary:	Internationalization package
 License:	PHP License
 Group:		Development/PHP
-Patch0:		%{name}-path_fix.patch
-Patch1:		I18N-0.8.6-package_xml_fix.diff
 URL:		http://pear.php.net/package/I18N/
 Source0:	http://download.pear.php.net/package/%{upstream_name}-%{version}.tar.bz2
+Patch0:		%{name}-fix-path.patch
 Requires(post): php-pear
 Requires(preun): php-pear
 Requires:	php-pear
@@ -28,7 +27,6 @@ determine the current users (browser-)language.
 %prep
 %setup -q -c
 %patch0 -p1
-%patch1 -p0
 mv package.xml %{upstream_name}-%{version}/%{upstream_name}.xml
 
 %install
