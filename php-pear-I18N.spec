@@ -4,14 +4,13 @@
 %define		_requires_exceptions pear(Translate)\\|pear(HTML/IT.php)
 
 Name:		php-pear-%{upstream_name}
-Version:	0.8.6
-Release:	%mkrel 13
+Version:	1.0.0
+Release:	%mkrel 1
 Summary:	Internationalization package
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/I18N/
 Source0:	http://download.pear.php.net/package/%{upstream_name}-%{version}.tar.bz2
-Patch0:		%{name}-fix-path.patch
 Requires(post): php-pear
 Requires(preun): php-pear
 Requires:	php-pear
@@ -26,7 +25,6 @@ determine the current users (browser-)language.
 
 %prep
 %setup -q -c
-%patch0 -p1
 mv package.xml %{upstream_name}-%{version}/%{upstream_name}.xml
 
 %install
