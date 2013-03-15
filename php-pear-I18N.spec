@@ -1,11 +1,9 @@
 %define		_class		I18N
 %define		upstream_name	%{_class}
 
-%define		_requires_exceptions pear(Translate)\\|pear(HTML/IT.php)
-
 Name:		php-pear-%{upstream_name}
 Version:	1.0.0
-Release:	%mkrel 4
+Release:	5
 Summary:	Internationalization package
 License:	PHP License
 Group:		Development/PHP
@@ -16,7 +14,6 @@ Requires(preun): php-pear
 Requires:	php-pear
 BuildArch:	noarch
 BuildRequires:	php-pear
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package supports you to localize your applications. Currently
@@ -28,7 +25,6 @@ determine the current users (browser-)language.
 mv package.xml %{upstream_name}-%{version}/%{upstream_name}.xml
 
 %install
-rm -rf %{buildroot}
 
 cd %{upstream_name}-%{version}
 pear install --nodeps --packagingroot %{buildroot} %{upstream_name}.xml
@@ -41,21 +37,8 @@ install -d %{buildroot}%{_datadir}/pear/packages
 install -m 644 %{upstream_name}.xml %{buildroot}%{_datadir}/pear/packages
 
 %clean
-rm -rf %{buildroot}
 
-%post
-%if %mdkversion < 201000
-pear install --nodeps --soft --force --register-only \
-    %{_datadir}/pear/packages/%{upstream_name}.xml >/dev/null || :
-%endif
 
-%preun
-%if %mdkversion < 201000
-if [ "$1" -eq "0" ]; then
-    pear uninstall --nodeps --ignore-errors --register-only \
-        %{upstream_name} >/dev/null || :
-fi
-%endif
 
 %files
 %defattr(-,root,root)
