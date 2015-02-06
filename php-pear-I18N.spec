@@ -3,7 +3,7 @@
 
 Name:		php-pear-%{upstream_name}
 Version:	1.0.0
-Release:	5
+Release:	6
 Summary:	Internationalization package
 License:	PHP License
 Group:		Development/PHP
